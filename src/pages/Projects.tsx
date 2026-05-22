@@ -21,6 +21,7 @@ import { useFilter, useProjects } from "@/hooks";
 import { GOOD_FIRST_ISSUES } from "@/constants";
 import type { Projects, Issue, ProjectStatus, ProjectCategory } from "@/types";
 import EyebrowLabel from "@/components/UI/EyebrowLable";
+import { ScrollAnimatedItem } from "@/components/UI/ScrollAnimatedItem";
 
 // ─── Meta maps
 const STATUS_META: Record<
@@ -354,7 +355,7 @@ const IssueRow = ({ issue }: { issue: Issue }) => (
 );
 
 // ─── Page
-const Projectt = () => {
+const Project = () => {
   const { projects, loading, error } = useProjects();
 
   // ── Filter hook — replaces all the inline useState filter logic
@@ -530,8 +531,10 @@ const Projectt = () => {
 
               {nonFeatured.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {nonFeatured.map((p) => (
-                    <ProjectCard key={p.id} project={p} />
+                  {nonFeatured.map((p, idx) => (
+                    <ScrollAnimatedItem key={p.id} delay={idx * 0.15}>
+                      <ProjectCard project={p} />
+                    </ScrollAnimatedItem>
                   ))}
                 </div>
               ) : (
@@ -675,7 +678,7 @@ const Projectt = () => {
               ))}
             </div>
             <a
-              href="mailto:contact@oskigali.org"
+              href="https://mail.google.com/mail/?view=cm&to=contact@oskigali.org&su=Project%20Proposal"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-3 mt-7 rounded-xl text-white text-sm font-bold transition-colors"
@@ -696,4 +699,4 @@ const Projectt = () => {
   );
 };
 
-export default Projectt;
+export default Project;
