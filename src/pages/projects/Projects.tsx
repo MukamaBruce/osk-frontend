@@ -16,7 +16,7 @@ import {
   Clock,
 } from "lucide-react";
 import { Badge } from "@/components/UI/";
-import { Card, SectionLabel, Loader } from "@/components/UI";
+import { Card, SectionLabel, LoadingSpinner } from "@/components/UI";
 import { useFilter, useProjects } from "@/hooks";
 import { GOOD_FIRST_ISSUES } from "@/constants";
 import type { Projects, Issue, ProjectStatus, ProjectCategory } from "@/types";
@@ -515,7 +515,7 @@ const Project = () => {
       <section className="py-12 px-6 md:px-20 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           {loading ? (
-            <Loader />
+            <LoadingSpinner />
           ) : error ? (
             <div className="text-center py-24 text-gray-400">
               <Code2 size={36} className="mx-auto mb-4 opacity-30" />

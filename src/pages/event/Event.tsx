@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router";
 import {Calendar, Clock, MapPin, Users, ArrowUpRight, ChevronRight, ChevronDown, Filter, Play, Mic, Zap, Code2, Globe, CheckCircle2, Bell, ChevronLeft} from "lucide-react";
 import { useFilter, useEvents } from "@/hooks";
-import { AttendeeBar, Badge , SectionLabel, Loader} from "@/components/UI";
+import { AttendeeBar, Badge , SectionLabel, LoadingSpinner} from "@/components/UI";
 import type {OSKEvent,EventType,} from "@/types";
 import EyebrowLabel from "@/components/UI/EyebrowLable";
 import socialLink from "@/config/links"
@@ -479,7 +479,7 @@ const Event = () => {
   const upcomingCount = events.filter((e) => e.status !== "past").length;
 
   if (loading) {
-    return <Loader fullPage />;
+    return <LoadingSpinner fullPage />;
   }
 
   if (error) {

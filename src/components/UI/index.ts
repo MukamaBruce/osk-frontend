@@ -6,3 +6,4 @@ export { SectionLabel } from "./SectionLabel";
 export { AttendeeBar }  from "./AttendeeBar";
 export { Skeleton }     from "./Skeleton";
 export { default as Loader } from "./Loader";
+export { default as LoadingSpinner } from "./LoadingSpinner";
